@@ -5,21 +5,31 @@ import * as placesActions from '../store/actions/places'
 import {ScrollView, View, Text, Button, TextInput, StyleSheet, Platform} from 'react-native';
 import Colors from "../constants/Colors";
 
+import ImgPicker from "../components/ImagePicker";
+
 const NewPlaceScreen = props => {
 
     const dispatch = useDispatch();
 
     const [titleValue, setTitleValue] = useState('');
 
+    const [selectedImage, setSelectedImage] = useState();
+
 
     const titleChangedHandler = text => {
         setTitleValue(text)
     };
 
+    const imageTakenHandler = (imagePath) => {
+        setSelectedImage(imagePath);
+    };
+
     const savePlaceHandler = () => {
-        dispatch(placesActions.addPlace(titleValue));
+        dispatch(placesActions.addPlace(titleValue, selectedImage));
         props.navigation.goBack();
     };
+
+
 
  return (
      <ScrollView>
@@ -30,6 +40,7 @@ const NewPlaceScreen = props => {
                  onChangeText={titleChangedHandler}
                  value={titleValue}
              />
+             <ImgPicker onImageTaken={imageTakenHandler}/>
              <Button
                  title={'Save Place'}
                  color={Colors.primary}

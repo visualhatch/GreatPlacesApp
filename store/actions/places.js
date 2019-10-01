@@ -1,6 +1,6 @@
 import * as FileSystem from 'expo-file-system';
 
-import ENV from '../../env'
+import ENV from '../../Env/env'
 
 import { insertPlace, fetchPlaces } from "../../helpers/db";
 import {add} from "react-native-reanimated";

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {View, TouchableOpacity, Image, StyleSheet, ActivityIndicator} from 'react-native';
 
-import ENV from '../env';
+import ENV from '../Env/env';
 import Colors from "../constants/Colors";
 
 const MapPreview = props => {
